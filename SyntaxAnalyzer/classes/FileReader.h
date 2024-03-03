@@ -9,8 +9,18 @@ public:
         std::ifstream file(filename);
 
         if (file.is_open()) {
+            int pos = 1, line = 1;
+
             while (!file.eof()) {
-                adapter.read(file.get());
+                char ch = file.get();
+
+                adapter.read(ch, pos, line);
+
+                pos++;
+                if(ch == '\n'){
+                    line++;
+                    pos = 1;
+                }
             }
         } else {
             file.close();

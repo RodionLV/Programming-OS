@@ -1,0 +1,2 @@
+code.txt: succesfully
+err-code.txt: error in line: 12 and col: 22
